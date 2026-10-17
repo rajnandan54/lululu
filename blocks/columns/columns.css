@@ -9,6 +9,13 @@
 
 .columns > div > div {
   order: 1;
+  box-sizing: border-box;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 24px;
+  background-color: var(--glass-background);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 .columns > div > .columns-img-col {

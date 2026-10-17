@@ -1,5 +1,8 @@
 footer {
-  background-color: var(--light-color);
+  border-top: 1px solid var(--glass-border);
+  background-color: var(--glass-background);
+  box-shadow: 0 -8px 28px rgb(35 53 78 / 5%);
+  backdrop-filter: blur(var(--glass-blur));
   font-size: var(--body-font-size-xs);
 }
 

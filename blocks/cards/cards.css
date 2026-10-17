@@ -8,8 +8,18 @@
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background-color: var(--glass-background);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.cards > ul > li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgb(35 53 78 / 14%);
 }
 
 .cards .cards-card-body {

@@ -1,6 +1,9 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  border-bottom: 1px solid var(--glass-border);
+  background-color: var(--glass-background);
+  box-shadow: 0 6px 24px rgb(35 53 78 / 7%);
+  backdrop-filter: blur(var(--glass-blur));
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -32,7 +35,8 @@ header nav[aria-expanded='true'] {
 
 @media (width >= 900px) {
   header .nav-wrapper {
-    position: relative;
+    position: fixed;
+    top: 0;
   }
 
   header nav {
@@ -67,7 +71,7 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: transparent;
   color: inherit;
   overflow: initial;
   text-overflow: initial;

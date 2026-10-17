@@ -12,12 +12,16 @@
 
 :root {
   /* colors */
-  --background-color: white;
+  --background-color: #f4f7fb;
   --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --dark-color: #343b46;
+  --text-color: #1c2430;
+  --link-color: #0878e8;
+  --link-hover-color: #005bbd;
+  --glass-background: rgb(255 255 255 / 22%);
+  --glass-border: rgb(255 255 255 / 68%);
+  --glass-shadow: 0 12px 36px rgb(35 53 78 / 9%);
+  --glass-blur: 18px;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
@@ -74,6 +78,11 @@ body {
   display: none;
   margin: 0;
   background-color: var(--background-color);
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgb(157 207 255 / 78%), transparent 38%),
+    radial-gradient(ellipse at 88% 24%, rgb(255 178 216 / 66%), transparent 34%),
+    radial-gradient(ellipse at 64% 90%, rgb(156 230 203 / 68%), transparent 40%);
+  background-attachment: fixed;
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
@@ -136,8 +145,11 @@ pre {
 
 pre {
   padding: 16px;
-  border-radius: 8px;
-  background-color: var(--light-color);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background-color: var(--glass-background);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
   overflow-x: auto;
   white-space: pre;
 }
@@ -178,9 +190,11 @@ button.button {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
+  border: 1px solid var(--glass-border);
   border-radius: 2.4em;
   padding: 0.5em 1.2em;
+  box-shadow: 0 4px 14px rgb(35 53 78 / 8%);
+  backdrop-filter: blur(var(--glass-blur));
   font: inherit;
   font-weight: 500;
   line-height: 1.25;
@@ -226,8 +240,8 @@ button.button.primary:disabled:focus-visible {
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
-  background-color: transparent;
+  border-color: var(--glass-border);
+  background-color: var(--glass-background);
   color: var(--text-color);
 }
 
@@ -317,9 +331,15 @@ main > .section:first-of-type {
 }
 
 /* section metadata */
+main .section.light {
+  border-block: 1px solid var(--glass-border);
+  background-color: var(--glass-background);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
 }
