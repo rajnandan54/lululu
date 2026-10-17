@@ -1,0 +1,91 @@
+.login {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background-color: var(--glass-background);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.login .login-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.login .login-tabs button {
+  flex: 1;
+  padding: 8px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font: inherit;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.login .login-tabs button[aria-selected='true'] {
+  border-bottom-color: var(--link-color);
+  font-weight: 700;
+}
+
+.login .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login .login-form[hidden] {
+  display: none;
+}
+
+.login .login-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (width >= 600px) {
+  .login .login-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.login .login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.login .login-field label {
+  font-size: var(--body-font-size-xs);
+}
+
+.login .login-field input,
+.login .login-field select {
+  padding: 8px 12px;
+  border: 1px solid var(--dark-color);
+  border-radius: 8px;
+  font: inherit;
+  font-size: var(--body-font-size-s);
+}
+
+.login .login-status {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  font-size: var(--body-font-size-xs);
+}
+
+.login .login-status.error {
+  color: #c62828;
+}
+
+.login .login-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}

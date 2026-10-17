@@ -274,4 +274,22 @@ header nav .nav-sections .nav-drop > button[aria-expanded='false'] + ul {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header nav .nav-tools .nav-account:any-link {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid currentcolor;
+  border-radius: 999px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+header nav .nav-tools .nav-account:hover {
+  color: var(--link-hover-color);
 }

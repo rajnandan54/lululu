@@ -1,4 +1,5 @@
 import { getMetadata } from '../../scripts/aem.js';
+import { getUser } from '../../scripts/user.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
@@ -87,6 +88,33 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Adds a sign-in / account CTA to the nav tools that tracks login state.
+ * @param {Element} nav The nav element
+ */
+function decorateAccount(nav) {
+  let tools = nav.querySelector('.nav-tools');
+  if (!tools) {
+    tools = document.createElement('div');
+    tools.className = 'section nav-tools';
+    nav.append(tools);
+  }
+  const loginMeta = getMetadata('login');
+  const loginPath = loginMeta ? new URL(loginMeta, window.location).pathname : '/login';
+
+  const link = document.createElement('a');
+  link.className = 'nav-account';
+  link.href = loginPath;
+  const render = (user) => {
+    link.textContent = user ? `Hi, ${user.firstName || user.email}` : 'Sign in';
+    link.setAttribute('aria-label', user ? 'My account' : 'Sign in or register');
+    if (window.location.pathname === loginPath) link.setAttribute('aria-current', 'page');
+  };
+  render(getUser());
+  window.addEventListener('user.update', (e) => render(e.detail.user));
+  tools.append(link);
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -139,6 +167,8 @@ export default async function decorate(block) {
       });
     });
   }
+
+  decorateAccount(nav);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

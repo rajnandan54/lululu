@@ -5,5 +5,12 @@
 />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <script nonce="aem" src="/scripts/aem.js" type="module"></script>
+<script nonce="aem">
+  !function(e,a,n,t){var i=e.head;if(i){if(a)return;var o=e.createElement("style");
+  o.id="alloy-prehiding",o.innerText=n,i.appendChild(o),
+  setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}
+  (document, document.location.href.indexOf("adobe_authoring_enabled")!==-1,
+   ".personalization-container { opacity: 0 !important }", 3000);
+</script>
 <script nonce="aem" src="/scripts/scripts.js" type="module"></script>
 <link rel="stylesheet" href="/styles/styles.css"/>
