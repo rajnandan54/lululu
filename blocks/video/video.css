@@ -1,16 +1,36 @@
 .video {
-  position: relative;
+  --video-ratio: 16 / 9;
+
   width: 100%;
-  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+}
+
+.video.video-small {
+  max-width: 480px;
+}
+
+.video.video-medium {
+  max-width: 720px;
+}
+
+.video.video-large {
+  max-width: 960px;
+}
+
+.video.video-full {
+  max-width: none;
+}
+
+.video .video-frame {
+  position: relative;
+  aspect-ratio: var(--video-ratio);
   overflow: hidden;
   border-radius: 16px;
   background-color: var(--dark-color);
 }
 
-.video iframe,
-.video video,
-.video picture,
-.video img {
+.video .video-frame iframe,
+.video .video-frame video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -19,6 +39,9 @@
   object-fit: cover;
 }
 
-.video > div {
-  height: 100%;
+.video .video-title {
+  margin: 12px 0 0;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  text-align: center;
 }
